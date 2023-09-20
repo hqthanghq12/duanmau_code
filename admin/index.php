@@ -1,7 +1,5 @@
 
 <?php
-session_start();
-if(isset($_SESSION['user'])){
     include "../model/pdo.php";
     include "../model/danhmuc.php";
     include "../model/sanpham.php";
@@ -27,9 +25,9 @@ if(isset($_SESSION['user'])){
                     $target_dir = "../upload/";
                     $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
                     if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
-                        echo "The file ". htmlspecialchars( basename( $_FILES["hinh"]["name"])). " has been uploaded.";
+                        // echo "The file ". htmlspecialchars( basename( $_FILES["hinh"]["name"])). " has been uploaded.";
                     } else {
-                        echo "Sorry, there was an error uploading your file.";
+                        // echo "Sorry, there was an error uploading your file.";
                     }
 
                     insert_sanpham($tensp,$giasp,$hinh,$mota,$iddm);
@@ -80,9 +78,9 @@ if(isset($_SESSION['user'])){
                     $target_dir = "../upload/";
                     $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
                     if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
-                        echo "The file ". htmlspecialchars( basename( $_FILES["hinh"]["name"])). " has been uploaded.";
+                        // echo "The file ". htmlspecialchars( basename( $_FILES["hinh"]["name"])). " has been uploaded.";
                     } else {
-                        echo "Sorry, there was an error uploading your file.";
+                        // echo "Sorry, there was an error uploading your file.";
                     }
                     update_sanpham($id,$iddm,$tensp,$giasp,$mota,$hinh);
                     $thongbao="cập nhật thành công!";
@@ -100,8 +98,5 @@ if(isset($_SESSION['user'])){
     }
 
     include "footer.php";
-}else{
-    header('Location: ../index.php');
-}
 
 ?>
